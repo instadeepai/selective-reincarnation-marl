@@ -10,3 +10,6 @@ omegaconf
 pre-commit
 pytest
 setuptools
+
+# My requirements
+id-mava[reverb,tf]==0.1.3
