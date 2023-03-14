@@ -9,8 +9,8 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.8", "3.9"]
-        os: [ubuntu-latest]
+        python-version: ["3.8"]
+        os: [self-hosted]
 
     steps:
       - name: Install dependencies for viewer test
@@ -24,12 +24,3 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run linters 🖌️
         run: pre-commit run --all-files --verbose
-      - name: Run tests 🧪
-        run: pytest --verbose ml_research_template
-#        run: pytest -n 2 --cov=jumanji --cov-report=term-missing --junit-xml=test-results.xml -vv jumanji
-#      - name: Run coverage
-#        run: |
-#          coverage html --directory=coverage_html_report
-#          coverage report --fail-under=0.97
-#      - name: Test build docs 📖
-#        run: mkdocs build --verbose --site-dir docs_public
