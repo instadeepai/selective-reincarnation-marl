@@ -8,20 +8,20 @@ Official repository for [Reduce, Reuse, Recycle: Selective Reincarnation in Mult
 ## ⚠️ Warning!
 Because of our dependency on [Mava](https://github.com/instadeepai/Mava), which depends on DeepMind's Reverb package, this code will likely only work on Linux systems. These instructions were tested on Ubuntu 22 with Python 3.8, using a Conda virtual environment.
 
-## Installation
+## 💻 Installation
 
-### Create and activate conda environment
+### 🐍 Create and activate conda environment
 ```
 conda create -n srmarl python=3.8
 conda activate srmarl
 ```
 
-### Install Requirements
+### 📚 Install Requirements
 ```
 pip install -r requirements.txt
 ```
 
-### Install MAMuJoCo
+### 🐆 Install MAMuJoCo
 ```
 bash install_mamujoco.sh
 ```
@@ -33,7 +33,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/:~/.mujoco/muj
 export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so
 ```
 
-## Run an experiment
+## 🧪 Run an experiment
 Run an experiment by running the script `run.py`:
 
 `python experiments/run_exp.py`
@@ -53,24 +53,24 @@ Use the string `None` to specify the whole system should be trained from scratch
 `python experiments/run_exp.py --ragents=None`
 
 
-## Troubleshooting
+## 🤨 Troubleshooting
 
-### Error:
+### ⛔️ Error:
 After installing MAMuJoCo you get the following error:
 
 `ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
 tensorflow 2.8.4 requires protobuf<3.20,>=3.9.2, but you have protobuf 3.20.3 which is incompatible.
 id-mava 0.1.3 requires numpy~=1.21.4, but you have numpy 1.24.2 which is incompatible.`
-### Solution:
-Just ignore the error. The code should still work properly.
+### ✅ Solution:
+Just ignore this error. The code should still work properly.
 
-### Error:
+### ⛔️ Error:
 When you run the script `run.py`, you get the error message:
 `ImportError: libpython3.8.so.1.0: cannot open shared object file: No such file or directory`
-### Solution: 
+### ✅ Solution: 
 `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib`
 
-### Important Note:
+### ⛔️ Note:
 Due to the small size of our neural networks, this code will run slower on a GPU than a CPU. You can easily run without GPU by setting the following environment variable:
 
 `export CUDA_VISIBLE_DEVICES=""`
