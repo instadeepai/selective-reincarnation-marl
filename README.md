@@ -45,13 +45,11 @@ Run an experiment by running the default experiment script `default_exp.py`:
 
 You can use the command line argument `--ragents` to specify which agents should be reincarnated, using a string of comma-separated agent IDs. For example:
 
-`python experiments/default_exp.py --ragents=1,2,3`
-
-`python experiments/default_exp.py --ragents=1,`
-
-`python experiments/default_exp.py --ragents=2,3,5`
-
-etc.
+```
+python experiments/default_exp.py --ragents=1,2,3
+python experiments/default_exp.py --ragents=1,
+python experiments/default_exp.py --ragents=2,3,5
+```
 
 Use the string `None` to specify the whole system should be trained from scratch:
 
