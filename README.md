@@ -16,7 +16,12 @@ conda create -n srmarl python=3.8
 conda activate srmarl
 ```
 
-### 📚 Install Requirements
+### 🧟 Install SRMARL package
+```
+pip install -e .
+```
+
+### 📚 Install Other Requirements
 ```
 pip install -r requirements.txt
 ```
@@ -34,23 +39,23 @@ export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so
 ```
 
 ## 🧪 Run an experiment
-Run an experiment by running the script `run.py`:
+Run an experiment by running the default experiment script `default_exp.py`:
 
-`python experiments/run_exp.py`
+`python experiments/default_exp.py`
 
 You can use the command line argument `--ragents` to specify which agents should be reincarnated, using a string of comma-separated agent IDs. For example:
 
-`python experiments/run_exp.py --ragents=1,2,3`
+`python experiments/default_exp.py --ragents=1,2,3`
 
-`python experiments/run_exp.py --ragents=1,`
+`python experiments/default_exp.py --ragents=1,`
 
-`python experiments/run_exp.py --ragents=2,3,5`
+`python experiments/default_exp.py --ragents=2,3,5`
 
 etc.
 
 Use the string `None` to specify the whole system should be trained from scratch:
 
-`python experiments/run_exp.py --ragents=None`
+`python experiments/default_exp.py --ragents=None`
 
 
 ## 🤨 Troubleshooting
