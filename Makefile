@@ -21,7 +21,7 @@ DOCKER_RUN_TENSORBOARD=docker run $(RUN_FLAGS_TENSORBOARD) $(IMAGE)
 
 # Set exp to run when using `make run`
 # Default exp
-exp=./experiments/run_exp.py
+exp=./experiments/default_exp.sh
 
 # make file commands
 build:
