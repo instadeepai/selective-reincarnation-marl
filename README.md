@@ -1,59 +1,76 @@
-# 🧩 Machine Learning Research Project Template
+# 🤖🧟 Selective Reincarnation in MARL
 
-## 👀 Overview
+Official repository for [Reduce, Reuse, Recycle: Selective Reincarnation in Multi-Agent Reinforcement Learning]() paper, accepted at the *Reincarnating RL* workshop at ICLR 2023.
 
-With the growth of our research activities, our team started experiencing inconsistencies in our coding practices and tools.
-Researchers needed to copy-paste boilerplate codes between repositories, and couldn't easily benefit from the utils created in other projects.
-This was the source of wasted time and energy on low value-add works and hindered collaborations between projects.
-Our objective with this template is therefore to help our researchers to:
+## Abstract
+> 'Reincarnation' in reinforcement learning has been proposed as a formalisation of reusing prior computation from past experiments when training an agent in an environment. In this paper, we present a brief foray into the paradigm of reincarnation in the multi-agent (MA) context. We consider the case where only some agents are reincarnated, whereas the others are trained from scratch -- selective reincarnation. In the fully-cooperative MA setting with heterogeneous agents, we demonstrate that selective reincarnation can lead to higher returns than training fully from scratch, and faster convergence than training with full reincarnation. However, the choice of which agents to reincarnate in a heterogeneous system is vitally important to the outcome of the training -- in fact, a poor choice can lead to considerably worse results than the alternatives. We argue that a rich field of work exists here, and we hope that our effort catalyses further energy in bringing the topic of reincarnation to the multi-agent realm.
 
-1. Reduce the time to set up a new repository and the time-to-experimentation.
-2. Share the collective knowledge acquired while building up our software activities.
+## ⚠️ Warning!
+Because of our dependency on [Mava](https://github.com/instadeepai/Mava), which depends on DeepMind's Reverb package, this code will likely only work on Linux systems. These instructions were tested on Ubuntu 22 with Python 3.8, using a Conda virtual environment.
 
-In practice, this template:
+## Installation
 
-1. Provides a generic structure to organise your code.
-2. Provide boilerplate codes, i.e. pre-commit and linters, CI, license, documentation, standard dockerfile and makefile, gitignore, AIchor manifest, etc.
-3. Put forward a set of good practices and guidelines that have demonstrated their benefits.
-
-In this quest to facilitate your setup, assumptions have been made.
-For instance, we assume here that your work will be done in Python (3.8), that you will use JAX as your Deep Learning library, and will run your code either on AIchor and/or GCP VM (GPU, TPU).
-Be aware that these assumptions might not hold for your project, and adjustments should be made.
-
-### 🎃 Out of Scope
-
-It is tempting to add as much as possible to this repository. We may indeed be slightly too generous in our offering,
-especially when the feature can be easily ignored or removed (e.g. CI pipeline).
-However, we should keep a strong focus on our objective and not deviate by trying to incorporate too many elements in this single template.
-In particular, we do not seek to:
-- Push for production-level code, i.e. testing, release process, strict type hinting, etc.
-- Provide all the components required to open-source the code.
-
-### 🤝 Contribution
-
-Contributions are welcome!
-This template must be an up-to-date reflection of our practices and preferred tooling.
-If you spot a problem or think of an improvement, don’t wait. Draft a PR and share it with your colleagues.
-
-## 🚀 Getting started
-
-This template already includes certain example workflows that will often be repeated between many, or all, projects.
-In particular the [Makefile](Makefile) is configured for ease of building [Docker](docker) images,
-starting containers and launching experiments locally and on both single- and multi-node TPU devices.
-
-**Local quickstart**
-```commandline
-make docker_build_cpu
-make docker_run command="python experiments/run.py"
+### Create and activate conda environment
+```
+conda create -n srmarl python=3.8
+conda activate srmarl
 ```
 
-**TPU VM**
-
-Edit the [Makefile](Makefile) with the desired TPU configuration.
-
-```commandline
-export GITHUB_USER_TOKEN={TOKEN} GITHUB_ACCESS_TOKEN={TOKEN}
-make create
-make run command="cd ml-research-template; make docker_build_tpu"
-make run command="cd ml-research-template; make docker_run command='python experiments/run.py'"
+### Install Requirements
 ```
+pip install -r requirements.txt
+```
+
+### Install MAMuJoCo
+```
+bash install_mamujoco.sh
+```
+
+You will need to set the following environment variables. We recommend adding them to your [Conda activate file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#setting-environment-variables). Alternatively add them to your `.bashrc` file, or set them each time you open a new terminal.
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/:~/.mujoco/mujoco210/bin:/usr/lib/nvidia:/root/.mujoco/mujoco210/bin
+export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so
+```
+
+## Run an experiment
+Run an experiment by running the script `run.py`:
+
+`python experiments/run_exp.py`
+
+You can use the command line argument `--ragents` to specify which agents should be reincarnated, using a string of comma-separated agent IDs. For example:
+
+`python experiments/run_exp.py --ragents=1,2,3`
+
+`python experiments/run_exp.py --ragents=1,`
+
+`python experiments/run_exp.py --ragents=2,3,5`
+
+etc.
+
+Use the string `None` to specify the whole system should be trained from scratch:
+
+`python experiments/run_exp.py --ragents=None`
+
+
+## Troubleshooting
+
+### Error:
+After installing MAMuJoCo you get the following error:
+
+`ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+tensorflow 2.8.4 requires protobuf<3.20,>=3.9.2, but you have protobuf 3.20.3 which is incompatible.
+id-mava 0.1.3 requires numpy~=1.21.4, but you have numpy 1.24.2 which is incompatible.`
+### Solution:
+Just ignore the error. The code should still work properly.
+
+### Error:
+When you run the script `run.py`, you get the error message:
+`ImportError: libpython3.8.so.1.0: cannot open shared object file: No such file or directory`
+### Solution: 
+`export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib`
+
+### Important Note:
+Due to the small size of our neural networks, this code will run slower on a GPU than a CPU. You can easily run without GPU by setting the following environment variable:
+
+`export CUDA_VISIBLE_DEVICES=""`
