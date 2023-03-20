@@ -13,7 +13,7 @@ For the sake of the current question of selective reincarnation, we use the 6-Ag
     <img src="assets/images/halfcheetah.png"  width="450" height="300" alt="6-Agent HALFCHEETA">
 </p>
 
-We enumerate all combinations of agents for reincarnation, a total of 2x6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
+We enumerate all combinations of agents for reincarnation, a total of 2^6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
 
 ## Impact of Teacher Dataset Quality in Reincarnating MARL
 First, we show that fully reincarnating a MARL system can spead up convergance. Additionally, we show that providing access solely to *Good* teacher data initially does not help speed up training and even seems to hamper it. It is only after around *125k* timesteps that we observe a dramatic peak in performance, thereafter significantly outperforming the *tabula rasa* system. In contrast, having additional *Medium* samples enables higher returns from the beginning of training – converging faster than the solely *Good* dataset.
