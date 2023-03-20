@@ -37,3 +37,15 @@ experiment’s outcome.
 
 ### Best and Worst of Five Reincarnated Agents
 ![Targeted Selective Reincarnation](assets/images/5_reincarnated_agents.png)
+
+# Cite
+
+```
+@inproceedings{formanek2023reduce,
+    title={Reduce, Reuse, Recycle: Selective Reincarnation in Multi-Agent Reinforcement Learning},
+    author={Juan Claude Formanek and Callum Rhys Tilbury and Jonathan Phillip Shock and Kale-ab Tessera and Arnu Pretorius},
+    booktitle={Workshop on Reincarnating Reinforcement Learning at ICLR 2023},
+    year={2023},
+    url={https://openreview.net/forum?id=_Nz9lt2qQfV}
+}
+```
