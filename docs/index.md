@@ -9,7 +9,8 @@ In this work we present a case study in multi-agent *policy-to-value RL* (PVRL),
 
 For the sake of the current question of selective reincarnation, we use the 2-Agent HALFCHEETAH environment from [Multi-Agent MuJoCo](https://github.com/schroederdewitt/multiagent_mujoco), where each of the six degrees-of-freedom is controlled by a separate agent.
 
-![2-Agent HALFCHEETAH](assets/images/halfcheetah.png)
+<!-- ![2-Agent HALFCHEETAH](assets/images/halfcheetah.png) -->
+<img src="assets/images/halfcheetah.png"  width="300" height="150">
 
 We enumerate all combinations of agents for reincarnation, a total of 2
 6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
