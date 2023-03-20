@@ -1,5 +1,6 @@
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
+  - jemoji
 title: Selective Reincarnation in Multi-Agent Reinfocement Learning
 description: Oral presentation at Reincarnating Reinforcement Learning ICLR 2023 workshop.
