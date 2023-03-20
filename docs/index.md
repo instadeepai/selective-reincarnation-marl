@@ -1,4 +1,4 @@
-# :zombie: :robot: Selective Reincarnation in Multi-Agent Reinforcement Learning
+# Selective Reincarnation in Multi-Agent Reinforcement Learning
 
 [Reincarnation](https://agarwl.github.io/reincarnating_rl/) in reinforcement learning has been proposed as a formalisation of reusing prior computation from past experiments when training an agent in an environment. In this work, we present a brief foray into the paradigm of reincarnation in the multi-agent reinforcement learning (MARL) context. We consider the case where only some agents are reincarnated, whereas the others are trained from scratch -- selective reincarnation.
 
