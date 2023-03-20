@@ -7,10 +7,9 @@
 # Selectivly-Reincarnated Policy-to-Value MARL
 In this work we present a case study in multi-agent *policy-to-value RL* (PVRL), focusing on one of the methods invoked by [Agarwal et al. (2022)](https://arxiv.org/abs/2206.01626), called ‘Rehearsal’ ([Gülçehre et al., 2020](https://openreview.net/forum?id=SygKyeHKDH)). 
 
-For the sake of the current question of selective reincarnation, we use the 2-Agent HALFCHEETAH environment from [Multi-Agent MuJoCo](https://github.com/schroederdewitt/multiagent_mujoco), where each of the six degrees-of-freedom is controlled by a separate agent.
+For the sake of the current question of selective reincarnation, we use the 6-Agent HALFCHEETAH environment from [Multi-Agent MuJoCo](https://github.com/schroederdewitt/multiagent_mujoco), where each of the six degrees-of-freedom is controlled by a separate agent.
 
-<!-- ![2-Agent HALFCHEETAH](assets/images/halfcheetah.png) -->
-<img src="assets/images/halfcheetah.png"  width="300" height="150">
+<img src="assets/images/halfcheetah.png"  width="450" height="300" alt="6-Agent HALFCHEETA" class="center">
 
 We enumerate all combinations of agents for reincarnation, a total of 2
 6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
