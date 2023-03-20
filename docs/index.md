@@ -23,7 +23,7 @@ First, we show that fully reincarnating a MARL system can spead up convergance. 
 ## Arbitrarily Selective Reincarnation
 Next we show that a selectively reincarnated setup also yields benefits – e.g. reincarnating with just half of the agents provides an improvement over *tabula rasa*.
 
-![Arbitrarily Selective Reincarnation](assets/images/arbitrarily_selective_reincarnation.png)
+<img src="assets/images/arbitrarily_selective_reincarnation.png" width="450" height="300" alt="Arbitrarily Selective Reincarnation">
 
 ## Targeted Selective Reincarnation Matters
 Finally, we present a vital consideration: in a multi-agent system, even in the simpler homogeneous case, agents can sometimes assume dissimilar roles with different degrees of importance to the whole system. In the HALFCHEETAH environment particularly, consider the unique requirements for the ankle, knee, and hip joints, and how these differ across the front and back legs, in order for the cheetah to walk. It is thus important that we compare, for a given integer *x*, the results across various combinations of *x* reincarnated agents. That is, e.g., compare reincarnating the back ankle and back knee (BA, BK) with the back ankle and back hip (BA, BH). We find that the choice of which agents to reincarnate plays a significant role in the
