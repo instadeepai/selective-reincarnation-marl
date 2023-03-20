@@ -9,15 +9,16 @@ In this work we present a case study in multi-agent *policy-to-value RL* (PVRL),
 
 For the sake of the current question of selective reincarnation, we use the 6-Agent HALFCHEETAH environment from [Multi-Agent MuJoCo](https://github.com/schroederdewitt/multiagent_mujoco), where each of the six degrees-of-freedom is controlled by a separate agent.
 
-x<img src="assets/images/halfcheetah.png"  width="450" height="300" alt="6-Agent HALFCHEETA" class="center">
+<p align="center">
+    <img src="assets/images/halfcheetah.png"  width="450" height="300" alt="6-Agent HALFCHEETA">
+</p>
 
-We enumerate all combinations of agents for reincarnation, a total of 2
-6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
+We enumerate all combinations of agents for reincarnation, a total of 2x6 = 64 subsets. For each subset, we retrain the system on HALFCHEETAH, where that particular group of agents gains access to their teachers offline data (i.e. they are reincarnated). For each combination, we train the system for *200k* timesteps, remove the teacher data, and then train for a further *50k* timesteps on student data alone. 
 
 ## Impact of Teacher Dataset Quality in Reincarnating MARL
 First, we show that fully reincarnating a MARL system can spead up convergance. Additionally, we show that providing access solely to *Good* teacher data initially does not help speed up training and even seems to hamper it. It is only after around *125k* timesteps that we observe a dramatic peak in performance, thereafter significantly outperforming the *tabula rasa* system. In contrast, having additional *Medium* samples enables higher returns from the beginning of training – converging faster than the solely *Good* dataset.
 
-![Impact of Teacher Dataset](assets/images/dataset_quality.png)
+<img src="assets/images/dataset_quality.png" width="450" height="300" alt="Impact of Teacher Datasets">
 
 ## Arbitrarily Selective Reincarnation
 Next we show that a selectively reincarnated setup also yields benefits – e.g. reincarnating with just half of the agents provides an improvement over *tabula rasa*.
@@ -29,14 +30,14 @@ Finally, we present a vital consideration: in a multi-agent system, even in the 
 experiment’s outcome.
 
 ### Best and Worst of Three Reincarnated Agents
-![Targeted Selective Reincarnation](assets/images/3_reincarnated_agents.png)
+<img src="assets/images/3_reincarnated_agents.png" width="450" height="300" alt="Targeted Selective Reincarnation 3 Agents">
 
 ### Best and Worst of Four Reincarnated Agents
-![Targeted Selective Reincarnation](assets/images/4_reincarnated_agents.png)
+<img src="assets/images/4_reincarnated_agents.png" width="450" height="300" alt="Targeted Selective Reincarnation 4 Agents">
 
 
 ### Best and Worst of Five Reincarnated Agents
-![Targeted Selective Reincarnation](assets/images/5_reincarnated_agents.png)
+<img src="assets/images/5_reincarnated_agents.png" width="450" height="300" alt="Targeted Selective Reincarnation 5 Agents">
 
 # Cite
 
