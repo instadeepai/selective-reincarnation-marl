@@ -1,6 +1,6 @@
 # 🤖🧟 Selective Reincarnation in MARL
 
-Official repository for [Reduce, Reuse, Recycle: Selective Reincarnation in Multi-Agent Reinforcement Learning]() paper, accepted at the *Reincarnating RL* workshop at ICLR 2023.
+Official repository for [Reduce, Reuse, Recycle: Selective Reincarnation in Multi-Agent Reinforcement Learning](https://openreview.net/forum?id=_Nz9lt2qQfV) paper, accepted at the *Reincarnating RL* workshop at ICLR 2023.
 
 ## Abstract
 > 'Reincarnation' in reinforcement learning has been proposed as a formalisation of reusing prior computation from past experiments when training an agent in an environment. In this paper, we present a brief foray into the paradigm of reincarnation in the multi-agent (MA) context. We consider the case where only some agents are reincarnated, whereas the others are trained from scratch -- selective reincarnation. In the fully-cooperative MA setting with heterogeneous agents, we demonstrate that selective reincarnation can lead to higher returns than training fully from scratch, and faster convergence than training with full reincarnation. However, the choice of which agents to reincarnate in a heterogeneous system is vitally important to the outcome of the training -- in fact, a poor choice can lead to considerably worse results than the alternatives. We argue that a rich field of work exists here, and we hope that our effort catalyses further energy in bringing the topic of reincarnation to the multi-agent realm.
