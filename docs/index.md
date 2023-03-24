@@ -41,7 +41,7 @@ experiment’s outcome.
 
 ```
 @inproceedings{
-    formanek2023reduce,
+    formanek2023selective,
     title={Reduce, Reuse, Recycle: Selective Reincarnation in Multi-Agent Reinforcement Learning},
     author={Juan Claude Formanek and Callum Rhys Tilbury and Jonathan Phillip Shock and Kale-ab Tessera and Arnu Pretorius},
     booktitle={Workshop on Reincarnating Reinforcement Learning at ICLR 2023},
