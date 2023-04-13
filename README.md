@@ -55,6 +55,10 @@ Use the string `None` to specify the whole system should be trained from scratch
 
 `python experiments/default_exp.py --ragents=None`
 
+Use the command line argument `--dataset` to specify which dataset quality to use. Options include "Good", "Medium" or "Good-Medium".
+
+`python experiments/default_exp.py --ragents=1,2,3 --dataset="Good-Medium"`
+
 
 ## 🤨 Troubleshooting
 
